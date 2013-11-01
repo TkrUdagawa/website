@@ -148,7 +148,7 @@ Run the sample program
 
 **[At Jubatus Client]**
 
- Get the required package and Java client ready.
+ Get the required package and Python client ready.
  
 **[Output]**
 
