@@ -124,29 +124,29 @@ First of all, to write the Client program for Classifier, we can use the Classif
   +-------------+------------+---------------+------------+---------------+------------+---------------+
   |             |key(string) |value(string)  |key(string) |value(double)  |key(string) |value(string)  |
   +=============+============+===============+============+===============+============+===============+
-  |"male"       | | "hair"   |"short"        | "height"   | 1.70          |            |               |
-  |             | | "top"    |"sweater"      |            |               |            |               |
-  |             | | "bottom" |"jeans"        |            |               |            |               |
+  |"male"       | | "hair"   | | "short"     | "height"   | 1.70          |            |               |
+  |             | | "top"    | | "sweater"   |            |               |            |               |
+  |             | | "bottom" | | "jeans"     |            |               |            |               |
   +-------------+------------+---------------+------------+---------------+------------+---------------+
-  |"female"     | | "hair"   |"long"         | "height"   | 1.56          |            |               |
-  |             | | "top"    |"shirt"        |            |               |            |               |
-  |             | | "bottom" |"skirt"        |            |               |            |               |
+  |"female"     | | "hair"   | | "long"      | "height"   | 1.56          |            |               |
+  |             | | "top"    | | "shirt"     |            |               |            |               |
+  |             | | "bottom" | | "skirt"     |            |               |            |               |
   +-------------+------------+---------------+------------+---------------+------------+---------------+
-  |"male"       | | "hair"   |"short"        | "height"   | 1.65          |            |               |
-  |             | | "top"    |"jacket"       |            |               |            |               |
-  |             | | "bottom" |"chino"        |            |               |            |               |
+  |"male"       | | "hair"   | | "short"     | "height"   | 1.65          |            |               |
+  |             | | "top"    | | "jacket"    |            |               |            |               |
+  |             | | "bottom" | | "chino"     |            |               |            |               |
   +-------------+------------+---------------+------------+---------------+------------+---------------+
-  |"female"     | | "hair"   |"short"        | "height"   | 1.72          |            |               |
-  |             | | "top"    |"T shirt"      |            |               |            |               |
-  |             | | "bottom" |"jeans"        |            |               |            |               |
+  |"female"     | | "hair"   | | "short"     | "height"   | 1.72          |            |               |
+  |             | | "top"    | | "T shirt"   |            |               |            |               |
+  |             | | "bottom" | | "jeans"     |            |               |            |               |
   +-------------+------------+---------------+------------+---------------+------------+---------------+
-  |"male"       | | "hair"   |"long"         | "height"   | 1.82          |            |               |
-  |             | | "top"    |"T shirt"      |            |               |            |               |
-  |             | | "bottom" |"jeans"        |            |               |            |               |
+  |"male"       | | "hair"   | | "long"      | "height"   | 1.82          |            |               |
+  |             | | "top"    | | "T shirt"   |            |               |            |               |
+  |             | | "bottom" | | "jeans"     |            |               |            |               |
   +-------------+------------+---------------+------------+---------------+------------+---------------+
-  |"feale"      | | "hair"   |"long"         | "height"   | 1.43          |            |               |
-  |             | | "top"    |"jacket"       |            |               |            |               |
-  |             | | "bottom" |"skirt"        |            |               |            |               |
+  |"feale"      | | "hair"   | | "long"      | "height"   | 1.43          |            |               |
+  |             | | "top"    | | "jacket"    |            |               |            |               |
+  |             | | "bottom" | | "skirt"     |            |               |            |               |
   +-------------+------------+---------------+------------+---------------+------------+---------------+
 
   train_data is the list of Datum and its label. In this sample, the label demonstrates the class name each Datum belongs to. Each Datum stores the data in key-value pairs, which is the format readable by Jubatus. The key can be recognized as the feature vector. Inside the Datum, there are 3 kinds of key-value lists, string_values, num_values and binary_values. For example, the "hair", "top", "bottom" values are in string format, While the "height" value is in numeric format. Therefore, they are stored separately inside each datum.
