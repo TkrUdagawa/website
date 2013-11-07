@@ -149,7 +149,7 @@ First of all, to write the Client program for Classifier, we can use the Classif
   |             | | "bottom" | | "skirt"     |            |               |            |               |
   +-------------+------------+---------------+------------+---------------+------------+---------------+
 
-  train_data is the list of Datum and its label. In this sample, the label demonstrates the class name each Datum belongs to. Each Datum stores the data in key-value pairs, which is the format readable by Jubatus. The key can be recognized as the feature vector. Inside the Datum, there are 3 kinds of key-value lists, string_values, num_values and binary_values. For example, the "hair", "top", "bottom" values are in string format, While the "height" value is in numeric format. Therefore, they are stored separately inside each datum.
+  train_data is the list of Datum and its label. In this sample, the label demonstrates the class name each Datum belongs to. Each Datum stores the data in key-value pairs, which is the format readable by Jubatus. The key can be recognized as the feature vector. Inside the Datum, there are 3 kinds of key-value lists, string_values, num_values and binary_values. For example, the "hair", "top", "bottom" values are in string format, While the "height" value is in numeric format. Therefore, they are stored separately inside each Datum.
 
  3. Model training (update learning model)
 
@@ -157,11 +157,11 @@ First of all, to write the Client program for Classifier, we can use the Classif
 
  4. Prepare the prediction data
 
-  Different from training data, prediction data does not contain its "lable", and it is only stored in the datum unit (Row 25-28).
+  Different from training data, prediction data does not contain its "lable", and it is only stored in the Datum unit (Row 25-28).
 
  5. Data prediction
 
-  By inputting the testdata arraylist generated in step.4 into the classify() method (Row 30), the prediction result will be stored in the result list (Row 32). The prediction result contains label and score means the confidence of each label (Row 34).
+  By inputting the test_data list generated in step.4 into the classify() method (Row 30), the prediction result will be stored in the result list (Row 32). The prediction result contains label and score means the confidence of each label (Row 34).
 
 
 ------------------------------------

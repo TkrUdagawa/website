@@ -147,7 +147,7 @@ First of all, to write the Client program for Classifier, we can use the Classif
   +-------------+--------------------------------------------------------------------------------------+
   |label(string)|Datum                                                                                 |
   +-------------+----------------------------+----------------------------+----------------------------+
-  |             |List<StringValue>           |List<NumValue>              |list<BinaryValue>           |
+  |             |List<StringValue>           |List<NumValue>              |List<BinaryValue>           |
   +-------------+------------+---------------+------------+---------------+------------+---------------+
   |             |key(String) |value(String)  |key(String) |value(double)  |key(String) |value(byte[])  |
   +=============+============+===============+============+===============+============+===============+
@@ -176,7 +176,7 @@ First of all, to write the Client program for Classifier, we can use the Classif
   |             | | "bottom" | | "skirt"     |            |               |            |               |
   +-------------+------------+---------------+------------+---------------+------------+---------------+
 
-  trainData is the list of Datum and its label. In this sample, the label demonstrates the class name each Datum belongs to. Each Datum stores the data in key-value pairs, which is the format readable by Jubatus. The key can be recognized as the feature vector. Inside the Datum, there are 3 kinds of key-value lists, string_values, num_values and binary_values. Each of these uses StringValue class, NumValue class and BinaryValue class. For example, the "hair", "top", "bottom" values are StirngValue, While the "height" value is NumValue. Therefore, they are stored separately inside each datum.
+  trainData is the array of LabeledDatum. LabeledDatum is a pair of Datum and its label. In this sample, the label demonstrates the class name each Datum belongs to. Each Datum stores the data in key-value pairs, which is the format readable by Jubatus. The key can be recognized as the feature vector. Inside the Datum, there are 3 kinds of key-value lists, string_values, num_values and binary_values. Each of these uses StringValue class, NumValue class and BinaryValue class. For example, the "hair", "top", "bottom" values are StirngValue, While the "height" value is NumValue. Therefore, they are stored separately inside each Datum.
 
   Here is the procedure of making study data.
 
@@ -196,7 +196,7 @@ First of all, to write the Client program for Classifier, we can use the Classif
 
  5. Data prediction
 
-  By inputting the testdata arraylist generated in step.4 into the classify() method of ClassifierClient (Row 51-52), the prediction result will be stored in the EstimateResult list (Row 55). EstimateResult contains label, score means the confidence of each label (Row 56).
+  By inputting the testData generated in step.4 into the classify() method of ClassifierClient (Row 51-52), the prediction result will be stored in the EstimateResult List (Row 55). EstimateResult contains label and score means the confidence of each label (Row 56).
 
 
 ------------------------------------

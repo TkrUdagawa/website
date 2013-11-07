@@ -215,7 +215,7 @@ Classifierのクライアントプログラムは、 Jubatus::Classifier::Client
 
  4. 予測用データの準備
 
-  予測も学習時と同様に、Datumを作成します。DatumのListをClassifierClientのclassifyメソッドに与えることで、予測が行われます。「nameが"慶喜"」の将軍の姓は何かを予測させるため、学習時と同様に構造体dataの宣言で初期値として、Datumのstring_valuesに"name"と"慶喜"を設定します。（77-82行目）
+  予測も学習時と同様に、Datumを作成します。DatumのArrayをClassifierClientのclassifyメソッドに与えることで、予測が行われます。「nameが"慶喜"」の将軍の姓は何かを予測させるため、学習時と同様に構造体dataの宣言で初期値として、Datumのstring_valuesに"name"と"慶喜"を設定します。（77-82行目）
 
  5. 学習データに基づく予測
 
