@@ -124,7 +124,7 @@ First of all, to write the Client program for Classifier, we can use the Classif
   +-------------+-----------------------------------------------------------------------------------------+
   |label(String)|Datum                                                                                    |
   +-------------+-----------------------------+-----------------------------+-----------------------------+
-  |             |Array<Array<String, String>> |Array<Array<String, Float>>  |Array<Array<string, String>> |
+  |             |Array<Array<String, String>> |Array<Array<String, Float>>  |Array<Array<String, String>> |
   +-------------+------------+----------------+------------+----------------+------------+----------------+
   |             |key(String) |value(String)   |key(String) |value(Float)    |key(String) |value(String)   |
   +=============+============+================+============+================+============+================+
