@@ -12,7 +12,7 @@ In this sample program, we will explain 1) how to configure the learning-algorit
 
 **train_route.json**
 
-.. code-block:: python
+.. code-block:: js
  :linenos:
 
  {
@@ -180,13 +180,12 @@ The configuration information is given by the JSON unit. Here is the meaning of 
 
 **create_graph.py**
 
-
- create_graph.py generates a graph composed of Yamanote-line and Chuou-line. The client program in Graph will use the 'Graph' class defined in 'jubatus.graph'. Here are the 5 methods used in the sample.
+create_graph.py generates a graph composed of Yamanote-line and Chuou-line. The client program in Graph will use the 'Graph' class defined in 'jubatus.graph'. Here are the 5 methods used in the sample.
 
  1. Connect to Jubatus Server
 
   Connect to Jubatus Server (Row 74).
-  Setting the IP addr., RPC port of Jubatus Server.
+  Setting the IP addr, RPC port of Jubatus Server and the unique name for task identification in Zookeeper.
 
  2. Regist the preset query
   
@@ -255,7 +254,7 @@ The configuration information is given by the JSON unit. Here is the meaning of 
    Method [add_station] is called (Row 47-48), to add every pair of neighboring nodes <station1, station2> in to the graph. 
    Method [add_station] will check the map of 'stations'. If the map contains the specified station, the station_id will be returned; Otherwise, a new node is created, and its ID is returned after storing the nodeID and station name into the 'stations' map (Row 59-66).
    Mehods [create_node] and [update_node] in Graph regist the new node.
-   At first, [create_node] method is called with its argument set by an unique task name in the ZooKeeper cluster, and the returned value is the nodeId.
+   At first, [create_node] method is called and the returned value is the nodeId.
    After that, a node is added into the graph. Then, we regist the key-value <name, "station name"> into the 'property' (Row 63).
    Finally, [update_node] method updates the 'property' with the node created at Row 63 (Row 64).
    
@@ -272,13 +271,13 @@ The configuration information is given by the JSON unit. Here is the meaning of 
   
  **search_route.py**
  
- 'search_route.py' finds the shortest path between every 2 stations from the graph that made by create_graph.py.
- The method it used is the "get_shortest_path".
+'search_route.py' finds the shortest path between every 2 stations from the graph that made by create_graph.py.
+The method it used is the "get_shortest_path".
   
   1. Connect to Jubatus Server
 
    Connect to Jubatus Server (Row 12).
-   Setting the IP addr., RPC port of Jubatus Server.
+   Setting the IP addr, RPC port of Jubatus Server and the unique name for task identification in Zookeeper.
 
    
   2. Prepare the query

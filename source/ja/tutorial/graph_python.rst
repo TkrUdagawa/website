@@ -11,7 +11,7 @@ Python
 
 **train_route.json**
 
-.. code-block:: python
+.. code-block:: js
  :linenos:
 
  {
@@ -179,12 +179,12 @@ Python
 
 **create_graph.py**
 
- create_graph.pyでは、山手線と中央線の接続を表すグラフを作成します。Graphのクライアントプログラムは、jubatus.graphクラス内で定義されているGraphクラスを利用して作成します。サンプルで使用するメソッドは、以下の5つです。
+create_graph.pyでは、山手線と中央線の接続を表すグラフを作成します。Graphのクライアントプログラムは、jubatus.Graphを利用して作成します。
 
  1. Jubatus Serverへの接続設定
 
   Jubatus Serverへの接続を行います（74行目）。
-  Jubatus ServerのIPアドレス，Jubatus ServerのRPCポート番号を設定します。
+  Jubatus ServerのIPアドレス，Jubatus ServerのRPCポート番号, タスクを識別するZookeeperクラスタ内でユニークな名前を設定します。
   
  2. プリセットクエリーを登録
 
@@ -256,7 +256,7 @@ Python
    取得したリストの1要素から隣接する2駅station1とstation2をそれぞれノードとしてグラフ内に追加するため、add_stationメソッドを呼び出します（47, 48行目）。
    add_stationメソッドではマップstationsに、引数に指定した駅が含まれているかを確認し、含まれている場合はその駅のID nodeIdを返却し、含まれない場合は新たにノードを登録して駅名とnodeIdをstationsに格納した後にnodeIdを返却します（59-66行目）。
    ノードの登録はcreate_nodeメソッドとupdate_nodeメソッドで行います。
-   まず、create_nodeメソッドを、引数にタスクを識別するZooKeeperクラスタ内でユニークな名前nameを指定して呼び出し、その戻り値をnodeIdとします(63行目)。
+   まず、create_nodeメソッドを呼び出し、その戻り値をnodeIdとします(63行目)。
    そしてupdate_nodeメソッドで、63行目で作成したノードの属性を更新します(64行目)。
    
   3-2. 追加した2駅の相互にエッジを張る
@@ -268,17 +268,17 @@ Python
   
  4. 駅IDの表示
 
-  3-1.で駅名と駅ID(nodeID)をstationsに格納しました。ここでは駅名を駅IDの昇順に並び替えて表示しています(68-70行目)。
+  3-1\.で駅名と駅ID(nodeID)をstationsに格納しました。ここでは駅名を駅IDの昇順に並び替えて表示しています(68-70行目)。
   
- **search_route.py**
+**search_route.py**
  
- search_route.pyでは、create_graph.pyで作成したグラフから2駅間の最短経路を計算します。
- 使用するメソッドは、最短経路を計算するためのget_shortest_pathメソッドです。
+search_route.pyでは、create_graph.pyで作成したグラフから2駅間の最短経路を計算します。
+使用するメソッドは、最短経路を計算するためのget_shortest_pathメソッドです。
   
   1. Jubatus Serverへの接続設定
 
    Jubatus Serverへの接続を行います（12行目）。
-   Jubatus ServerのIPアドレス，Jubatus ServerのRPCポート番号を設定します。
+   Jubatus ServerのIPアドレス，Jubatus ServerのRPCポート番号, タスクを識別するZookeeperクラスタ内でユニークな名前を設定します。
    
   2. クエリーの準備
 
@@ -289,11 +289,11 @@ Python
    
   3. 最短経路の計算
 
-   2.で作成したShortestPathQueryを指定して、get_shortest_pathを呼び出し、最短経路の計算をします(16行目)。
+   2\.で作成したShortestPathQueryを指定して、get_shortest_pathを呼び出し、最短経路の計算をします(16行目)。
    
   4. 結果の表示
 
-   3.で取得した最短経路で通過する駅を駅IDと関連付けて表示しています(18-24行目)。
+   3\.で取得した最短経路で通過する駅を駅IDと関連付けて表示しています(18-24行目)。
 
 
 ------------------------------------
