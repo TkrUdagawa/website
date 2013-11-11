@@ -134,7 +134,7 @@ Python
 
 **update.py**
 
-学習と推薦の手順を説明します。
+学習の手順を説明します。
 
 Recommenderのクライアントプログラムは、jubatus.Recommenderクラスを利用して作成します。
 使用するメソッドは、1データ分の学習を行うupdate_rowメソッドです。
@@ -219,6 +219,11 @@ Recommenderのクライアントプログラムは、jubatus.Recommenderクラ�
 
 **analyze.py**
 
+推薦の手順を説明します。
+
+学習と同様にクライアントプログラムは、jubatus.Recommenderクラスを利用して作成します。
+使用するメソッドは、与えられたデータから推薦を行うsimilar_row_from_idメソッドです。
+
  1. Jubatus Serverへの接続設定
 
   update.pyと同様のため省略。
@@ -236,8 +241,8 @@ Recommenderのクライアントプログラムは、jubatus.Recommenderクラ�
 
  4. 結果の出力
 
-  3\.で取得した、推薦結果のリストはsimilar_row_from_idメソッドの第3引数に"4"を指定したので、4 つの要素を持ったlistです。
-  listの1番目は自分自身なので、listの2番目から4番目までを結果として出力します。
+  3\.で取得した、推薦結果のリストはsimilar_row_from_idメソッドの第2引数に"4"を指定したので、4 つの要素を持ったlistです。
+  listの1番目は自分自身なので、2番目から4番目までを結果として出力します。
   update.pyと同様、選手1人ずつループで処理し 2. ～ 4. を繰り返します。
 
 ------------------------------------
