@@ -12,7 +12,7 @@ In this sample program, we will explain 1) how to configure the learning-algorit
 
 **rent.json**
 
-.. code-block:: python
+.. code-block:: js
  :linenos:
 
  {
@@ -124,18 +124,18 @@ In this sample program, we will explain 1) how to configure the learning-algorit
 
 ::
 
- 01 :  #
- 02 :  # distance : distance from station (walking time in minutes)
- 03 :  # space    : the footprint of the house (m*m)
- 04 :  # age      : build age (year)
- 05 :  # stair    : floors
- 06 :  # aspect   : direction [ N / NE / E / SE / S / SW / W / NW ]
- 07 :  #
- 08 :  distance : 8
- 09 :  space    : 32.00
- 10 :  age      : 15
- 11 :  stair    : 5
- 12 :  aspect   : "S"
+ #
+ # distance : distance from station (walking time in minutes)
+ # space    : the footprint of the house (m*m)
+ # age      : build age (year)
+ # stair    : floors
+ # aspect   : direction [ N / NE / E / SE / S / SW / W / NW ]
+ #
+ distance : 8
+ space    : 32.00
+ age      : 15
+ stair    : 5
+ aspect   : "S"
 
 
 --------------------------------
@@ -180,12 +180,12 @@ The configuration information is given by the JSON unit. Here is the meaning of 
 
 We explain the learning and prediction processes in this example codes.
 
- To write the Client program for Regression, we can use the Regression class defined in 'jubatus.regression'. There are two methods used in this program. The 'train' method for learning process, and the 'estimate' method for prediction with the data learnt.
+To write the Client program for Regression, we can use the Regression class defined in 'jubatus.regression'. There are two methods used in this program. The 'train' method for learning process, and the 'estimate' method for prediction with the data learnt.
  
  1. Connect to Jubatus Server
 
   Connect to Jubatus Server (Row 35)
-  Setting the IP addr. and RPC port of Jubatus Server.
+  Setting the IP addr, RPC port of Jubatus Server and the unique name for task identification in Zookeeper.
 
  2. Prepare the training data
 
@@ -197,37 +197,37 @@ We explain the learning and prediction processes in this example codes.
   Figure below shows the training data. (The following are four examples from over one hundred housing info. listed in the rent-data.csv)
 
   
-  +------------------------------------------------------------------------+
-  |                         list<tuple<float, Datum>>                      |
-  +-------------+----------------------------------------------------------+
-  |label(Float) |Datum                                                     |
-  |             +----------------------------+-----------------------------+
-  |             |list<tuple<string, string>> |list<tuple<string, double>>  |
-  |             +------------+---------------+---------------+-------------+
-  |             |key(String) |value(String)  |key(String)    |value(double)|
-  +=============+============+===============+===============+=============+
-  |5.0          |"aspect"    |"SW"           | | "distance"  | | 10        |
-  |             |            |               | | "space"     | | 20.04     |
-  |             |            |               | | "age"       | | 12        |
-  |             |            |               | | "stair"     | | 1         |
-  +-------------+------------+---------------+---------------+-------------+
-  |6.3          |"aspect"    |"N"            | | "distance"  | | 8         |
-  |             |            |               | | "space"     | | 21.56     |
-  |             |            |               | | "age"       | | 23        |
-  |             |            |               | | "stair"     | | 2         |
-  +-------------+------------+---------------+---------------+-------------+
-  |7.5          |"aspect"    |"SE"           | | "distance"  | | 25        |
-  |             |            |               | | "space"     | | 22.82     |
-  |             |            |               | | "age"       | | 23        |
-  |             |            |               | | "stair"     | | 4         |
-  +-------------+------------+---------------+---------------+-------------+
-  |9.23         |"aspect"    |"S"            | | "distance"  | | 10        |
-  |             |            |               | | "space"     | | 30.03     |
-  |             |            |               | | "age"       | | 0         |
-  |             |            |               | | "stair"     | | 2         |
-  +-------------+------------+---------------+---------------+-------------+
+  +-----------------------------------------------------------------------------------------------------+
+  |                         list<tuple<float, Datum>>                                                   |
+  +-------------+---------------------------------------------------------------------------------------+
+  |label(float) |Datum                                                                                  |
+  |             +----------------------------+-----------------------------+----------------------------+
+  |             |list<tuple<string, string>> |list<tuple<string, double>>  |list<tuple<string, string>> |
+  |             +------------+---------------+---------------+-------------+------------+---------------+
+  |             |key(string) |value(string)  |key(string)    |value(double)|key(string) |value(string)  |
+  +=============+============+===============+===============+=============+============+===============+
+  |5.0          |"aspect"    |"SW"           | | "distance"  | | 10        |            |               |
+  |             |            |               | | "space"     | | 20.04     |            |               |
+  |             |            |               | | "age"       | | 12        |            |               |
+  |             |            |               | | "stair"     | | 1         |            |               |
+  +-------------+------------+---------------+---------------+-------------+------------+---------------+
+  |6.3          |"aspect"    |"N"            | | "distance"  | | 8         |            |               |
+  |             |            |               | | "space"     | | 21.56     |            |               |
+  |             |            |               | | "age"       | | 23        |            |               |
+  |             |            |               | | "stair"     | | 2         |            |               |
+  +-------------+------------+---------------+---------------+-------------+------------+---------------+
+  |7.5          |"aspect"    |"SE"           | | "distance"  | | 25        |            |               |
+  |             |            |               | | "space"     | | 22.82     |            |               |
+  |             |            |               | | "age"       | | 23        |            |               |
+  |             |            |               | | "stair"     | | 4         |            |               |
+  +-------------+------------+---------------+---------------+-------------+------------+---------------+
+  |9.23         |"aspect"    |"S"            | | "distance"  | | 10        |            |               |
+  |             |            |               | | "space"     | | 30.03     |            |               |
+  |             |            |               | | "age"       | | 0         |            |               |
+  |             |            |               | | "stair"     | | 2         |            |               |
+  +-------------+------------+---------------+---------------+-------------+------------+---------------+
 
-  Tuple<float, Datum> contains 2 fields, "Datum" and the "label".
+  tuple<float, Datum> contains 2 fields, "Datum" and the "label".
   "Datum" is composed of key-value data which could be processed by Jubatus, and there are 3 types of key-value data format.
   In the first type, both the "key" and "value" are in string format (string_values); in the second one, the "key" is in string format, but the "value" is in numerical format (num_values); the last one, the "key" and "value" are in string format(biunary_values), but the "value" is stored binary data.
   These three types are represented in list<tuple<string, string>>, list<tuple<string, double>> and list<tuple<string, string>>, respectively.
@@ -240,12 +240,11 @@ We explain the learning and prediction processes in this example codes.
   | the third list's key is set as "age" and value is set as "15",
   | the fourth list's key is set as "stair" and value is set as "1".
 
-  The Datum of these 5 Lists is appended with a label of "5.0", as its rent, and forms an instance of tuple<float, Datum> which retains the rent (of 5.0 * 10,000) and its corresponding housing condition info.
-  Thus, the housing rental data are generated in the format of (tuple<float, Datum>) List, as the training data to be used.
+  The Datum of these 5 lists is appended with a label of "5.0", as its rent, and forms an instance of tuple<float, Datum> which retains the rent (of 5.0 * 10,000) and its corresponding housing condition info.
+  Thus, the housing rental data are generated in the format of (tuple<float, Datum>) list, as the training data to be used.
 
   Here is the detailed process for making the training data in this sample.
   
-  First, declare the variable of training data "trainDat", as a TupleFloatDatum List (Row 40).
   Next, read the source file (CSV file) of the training data line by line (Row 40-58).
   Split the data read from each line in CSV file, by the ',' mark (Row 48).
 
