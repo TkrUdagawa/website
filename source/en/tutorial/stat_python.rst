@@ -105,24 +105,24 @@ Stat.py reads the 'price', 'weight', 'diameter' of fruits from the .csv file, an
 
  1. Connect to Jubatus Server.
 
-  Connect to Jubatus Server (Row 12).
+  Connect to Jubatus Server (Line 12).
   Setting the IP addr, RPC port of Jubatus Server and the unique name for task identification in Zookeeper.
 
  2. Prepare the learning data
 
   Stat client send the <item_name, value> to the server side as training data, by using the push() method.
   In this sample program, the training data are generated from a .CSV file which contains the info. of 'fruit type', 'price', 'weight', 'diameter'.
-  The source data is read line by line from the .CSV file (Row 14-21). 
+  The source data is read line by line from the .CSV file (Line 14-21). 
 
  3. Data training (update the model)
 
-  The training data generated in Step 2 is send to the server site by using the push() method (Row 19-21) for training model there. Items of fruit are renamed as the fruit's name extended with the item's prefix, eg. item for a fruit's diameter is: fruit's name + "dia". 
+  The training data generated in Step 2 is send to the server site by using the push() method (Line 19-21) for training model there. Items of fruit are renamed as the fruit's name extended with the item's prefix, eg. item for a fruit's diameter is: fruit's name + "dia". 
  
  4. Output the result
 
   Stat client gets the different statistic results by using its methods.
-  For each type of fruits(Row 24), the program outputs its statistic results of all the items (Row 25).
-  Different methods are called (Row 26-31) in the loop above. Their contents are listed in the methods list above.
+  For each type of fruits(Line 24), the program outputs its statistic results of all the items (Line 25).
+  Different methods are called (Line 26-31) in the loop above. Their contents are listed in the methods list above.
       
 
 -------------------------------------

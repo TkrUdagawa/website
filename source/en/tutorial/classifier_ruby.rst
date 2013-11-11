@@ -110,13 +110,13 @@ First of all, to write the Client program for Classifier, we can use the Classif
 
  1. How to connect to Jubatus Server
 
-  Connect to Jubatus Server (Row 9).
+  Connect to Jubatus Server (Line 9).
   Setting the IP addr, RPC port of Jubatus Server and the unique name for task identification in Zookeeper.
 
  2. Prepare the learning data
 
-  Make a train_data Array for the data to be learnt (Row 11-21).
-  The train_data generated in Array<Array<String, Datum>> format is input into the train() method (Row 23), for the learning process. The figure below shows the structure of the data being leant.
+  Make a train_data Array for the data to be learnt (Line 11-21).
+  The train_data generated in Array<Array<String, Datum>> format is input into the train() method (Line 23), for the learning process. The figure below shows the structure of the data being leant.
 
 
   +-------------------------------------------------------------------------------------------------------+
@@ -157,15 +157,15 @@ First of all, to write the Client program for Classifier, we can use the Classif
 
  3. Model training (update learning model)
 
-  We train our learning model by using the method train() at Row 23, with the data generated in step.2 above.
+  We train our learning model by using the method train() at Line 23, with the data generated in step.2 above.
 
  4. Prepare the prediction data
 
-  Different from training data, prediction data does not contain its "lable", and it is only stored in the Datum unit (Row 25-29).
+  Different from training data, prediction data does not contain its "lable", and it is only stored in the Datum unit (Line 25-29).
 
  5. Data prediction
 
-  By inputting test_data Array generated in step.4 into the classify() method (Row 31), the prediction result will be stored in the result Array (Row 31. The prediction result contains label and score means the confidence of each label (Row 35).
+  By inputting test_data Array generated in step.4 into the classify() method (Line 31), the prediction result will be stored in the result Array (Line 31. The prediction result contains label and score means the confidence of each label (Line 35).
 
 
 ------------------------------------

@@ -184,7 +184,7 @@ To write the Client program for Regression, we can use the Regression class defi
  
  1. Connect to Jubatus Server
 
-  Connect to Jubatus Server (Row 35)
+  Connect to Jubatus Server (Line 35)
   Setting the IP addr, RPC port of Jubatus Server and the unique name for task identification in Zookeeper.
 
  2. Prepare the training data
@@ -245,15 +245,15 @@ To write the Client program for Regression, we can use the Regression class defi
 
   Here is the detailed process for making the training data in this sample.
   
-  Next, read the source file (CSV file) of the training data line by line (Row 40-58).
-  Split the data read from each line in CSV file, by the ',' mark (Row 48).
+  Next, read the source file (CSV file) of the training data line by line (Line 40-58).
+  Split the data read from each line in CSV file, by the ',' mark (Line 48).
 
-  The string items and double items are stored into the Datum consturctor of as a dictionary object (Row 49-55), respectively.
-  Finally, the Datum is appended with the rent label, so as to be used as one piece of training data (argument 'train' in Row 55).
+  The string items and double items are stored into the Datum consturctor of as a dictionary object (Line 49-55), respectively.
+  Finally, the Datum is appended with the rent label, so as to be used as one piece of training data (argument 'train' in Line 55).
   
  3. Model Training (update learning model
 
-  Input the training data generated in step.2 into the train() method (Row 58).
+  Input the training data generated in step.2 into the train() method (Line 58).
   The parameter specifies the train_data generated in step.2.
  
  4. Prepare the prediction data 
@@ -262,19 +262,19 @@ To write the Client program for Regression, we can use the Regression class defi
   Here, we generate the data for prediction by using the YAML file (please download the library `JYaml <http://jyaml.sourceforge.net/download.html>`_ )
   YAML is one kind of data format, in which objects and structure data are serialized.
   
-  Read the YAML file (myhome.yml) by yaml.load() and get the return value in dict type (Row 65).
-  Generate the prediction Datum by using the simliar process as in step 2 (Row 66-72).
+  Read the YAML file (myhome.yml) by yaml.load() and get the return value in dict type (Line 65).
+  Generate the prediction Datum by using the simliar process as in step 2 (Line 66-72).
   
   Add the Datum into the prediction data list, and send it into the estimate() method in "Regression" for prediction.
   
  5. Prediction by the regression model
 
-  The prediction results are returned as a list by the estimate() method (Row 74).
+  The prediction results are returned as a list by the estimate() method (Line 74).
 
  6. Output the result
 
   The prediction results are returned in the same order of the prediction data. (In this sample, only one prediction data is used, thus only one result is returned.)
-  The result is rounded at 2nd decimal for output, because it is in Float type (Row 76).
+  The result is rounded at 2nd decimal for output, because it is in Float type (Line 76).
 
 
 ------------------------------------

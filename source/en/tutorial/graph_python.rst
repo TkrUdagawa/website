@@ -184,22 +184,22 @@ create_graph.py generates a graph composed of Yamanote-line and Chuou-line. The 
 
  1. Connect to Jubatus Server
 
-  Connect to Jubatus Server (Row 74).
+  Connect to Jubatus Server (Line 74).
   Setting the IP addr, RPC port of Jubatus Server and the unique name for task identification in Zookeeper.
 
  2. Regist the preset query
   
-  The 'add_shortest_path_query' method must be registered beforehand. Therefore, the 'PresetQuery' is made (Row 77) and registed by 'add_shortest_path_query' (Row 78).
+  The 'add_shortest_path_query' method must be registered beforehand. Therefore, the 'PresetQuery' is made (Line 77) and registed by 'add_shortest_path_query' (Line 78).
 
  3. Generate the graph
 
   Make the graph composed of Yamanote-line and Chuou-line.
-  Firstly, the method [create_graph] is called at (Row 82-83).
+  Firstly, the method [create_graph] is called at (Line 82-83).
   The first argument in [create_graph] is the Graph made in Step. 1. 
   The second argument is the return value from method [get_station_join].
 
   Method [get_station_join] makes the combination list of two neighbor stations.
-  The station XML file is downloaded from Web (Row 29-30).
+  The station XML file is downloaded from Web (Line 29-30).
   Contents of the XML file likes below.
   In this sample program, we ignore the factor of 'distance', and only consider the connections between stations. So, the values in <station_name1>, <station_name2> are not used in the program.  
    
@@ -239,9 +239,9 @@ create_graph.py generates a graph composed of Yamanote-line and Chuou-line. The 
    -Snip-
    
   Now, we input the value of <station_cd1> in the XML file into the instance variable 'station1' in [StationJoin] class, and the value of <station_cd2> in to 'station2'.
-  The number of instance created in [StationJoin] is the same as the number of <station_join> tags, and they are sotred in the ArrayList that created at Row 28 （Row 31-41).
+  The number of instance created in [StationJoin] is the same as the number of <station_join> tags, and they are sotred in the ArrayList that created at Line 28 （Line 31-41).
   
-  Next, we make the graph by using the list created above (Row 44-57).
+  Next, we make the graph by using the list created above (Line 44-57).
   The method [create_graph] performs the following task.
 
    3-1. Add station information and ID.
@@ -251,23 +251,23 @@ create_graph.py generates a graph composed of Yamanote-line and Chuou-line. The 
     Make the bi-link between the registed station to its neighbor stations. Here, a link means a route. (eg. Harajuku <-> Shibuya, etc.)
   
   3-1. Add station information and ID.
-   Method [add_station] is called (Row 47-48), to add every pair of neighboring nodes <station1, station2> in to the graph. 
-   Method [add_station] will check the map of 'stations'. If the map contains the specified station, the station_id will be returned; Otherwise, a new node is created, and its ID is returned after storing the nodeID and station name into the 'stations' map (Row 59-66).
+   Method [add_station] is called (Line 47-48), to add every pair of neighboring nodes <station1, station2> in to the graph. 
+   Method [add_station] will check the map of 'stations'. If the map contains the specified station, the station_id will be returned; Otherwise, a new node is created, and its ID is returned after storing the nodeID and station name into the 'stations' map (Line 59-66).
    Mehods [create_node] and [update_node] in Graph regist the new node.
    At first, [create_node] method is called and the returned value is the nodeId.
-   After that, a node is added into the graph. Then, we regist the key-value <name, "station name"> into the 'property' (Row 63).
-   Finally, [update_node] method updates the 'property' with the node created at Row 63 (Row 64).
+   After that, a node is added into the graph. Then, we regist the key-value <name, "station name"> into the 'property' (Line 63).
+   Finally, [update_node] method updates the 'property' with the node created at Line 63 (Line 64).
    
   3-2. Create links between the added two neighbor stations
-   After adding the two neighbor stations by method [addStation], we create the bi-links between station1 and station2 (Row 51-54).
+   After adding the two neighbor stations by method [addStation], we create the bi-links between station1 and station2 (Line 51-54).
    Method [create_edge] is used to create the bi-links.
    The second argument means the start node's ID. The third argument is an edge instance, which has the nodeID of both start and end nodes of the edge.
    
-  The [update_index] method in Row 57 is used for locally Mix operation, do not use it in distributed environment.
+  The [update_index] method in Line 57 is used for locally Mix operation, do not use it in distributed environment.
 
  4. Show the stations
 
-  In step 3-1, station name and station ID(nodeID) are stored into the "stations". Here, we output the stations names by the ascending order of their IDs (Row 68-70).
+  In step 3-1, station name and station ID(nodeID) are stored into the "stations". Here, we output the stations names by the ascending order of their IDs (Line 68-70).
   
  **search_route.py**
  
@@ -276,24 +276,24 @@ The method it used is the "get_shortest_path".
   
   1. Connect to Jubatus Server
 
-   Connect to Jubatus Server (Row 12).
+   Connect to Jubatus Server (Line 12).
    Setting the IP addr, RPC port of Jubatus Server and the unique name for task identification in Zookeeper.
 
    
   2. Prepare the query
 
-   Prepare the query for the shortest path calculation (Row 14-15).
-   Create the ShortestPathQuery required by the [get_shortest_path] method (Row 15).
+   Prepare the query for the shortest path calculation (Line 14-15).
+   Create the ShortestPathQuery required by the [get_shortest_path] method (Line 15).
    Store the start node's & end node's nodeIDs into the first & second arguments in the 'types.ShortestPathQuery'. The third argument is the number of 'maxhop', the search process will be truncated if it fails to find the route within the specified number of 'maxhop'.
    Also note, the query should be registed by "add_shortest_path_query" beforehand.
    
   3. Calculate the shortes path
 
-   By specifying the "ShortestPathQuery" that created in Step.2, [get_shortest_path] method will find the shortest path (Row 16). 
+   By specifying the "ShortestPathQuery" that created in Step.2, [get_shortest_path] method will find the shortest path (Line 16). 
 
   4. Show the results
 
-   Show the ID of stations that on the shortes path calculated in Step 3 (Row 18-24).
+   Show the ID of stations that on the shortes path calculated in Step 3 (Line 18-24).
 
 ------------------------------------
 Run the sample program

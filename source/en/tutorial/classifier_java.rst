@@ -132,12 +132,12 @@ First of all, to write the Client program for Classifier, we can use the Classif
 
  1. How to connect to Jubatus Server
 
-  Connect to Jubatus Server (Row 32).
+  Connect to Jubatus Server (Line 32).
   Setting the IP addr, RPC port of Jubatus Server, the unique name for task identification in Zookeeper and the value of request timeout.
 
  2. Prepare the learning data
 
-  Make a dataset for the data to be learnt (Row 34-43).
+  Make a dataset for the data to be learnt (Line 34-43).
 
   The dataset is input into the train() method in ClassifierClient, for the learning process. The figure below shows the structure of the data being leant.
 
@@ -180,23 +180,23 @@ First of all, to write the Client program for Classifier, we can use the Classif
 
   Here is the procedure of making study data.
 
-  To make study data, the private method "makeTrainDatum" is used (Row 22-25).
+  To make study data, the private method "makeTrainDatum" is used (Line 22-25).
 
-  In this example, the key-value lists have the keys of "hair", "top", and "bottom" and their String type values registered through addString method, for example, are "short", "sweater", and "jeans". In addition, The key-value list have the key of "height", and its double type value registered through addNumber method, for example, "1.70" (Row 16-19).
+  In this example, the key-value lists have the keys of "hair", "top", and "bottom" and their String type values registered through addString method, for example, are "short", "sweater", and "jeans". In addition, The key-value list have the key of "height", and its double type value registered through addNumber method, for example, "1.70" (Line 16-19).
 
   According to the flow above, the training data is generated.
 
  3. Model training (update learning model)
 
-  We train our learning model by using the method train() (Row 45), with the data generated in step.2 above.
+  We train our learning model by using the method train() (Line 45), with the data generated in step.2 above.
 
  4. Prepare the prediction data
 
-  Different from training data, prediction data does not contain "lable", and it is only stored in the Datum unit by using makeDatum() (Row 14-20).
+  Different from training data, prediction data does not contain "lable", and it is only stored in the Datum unit by using makeDatum() (Line 14-20).
 
  5. Data prediction
 
-  By inputting the testData generated in step.4 into the classify() method of ClassifierClient (Row 51-52), the prediction result will be stored in the EstimateResult List (Row 55). EstimateResult contains label and score means the confidence of each label (Row 56).
+  By inputting the testData generated in step.4 into the classify() method of ClassifierClient (Line 51-52), the prediction result will be stored in the EstimateResult List (Line 55). EstimateResult contains label and score means the confidence of each label (Line 56).
 
 
 ------------------------------------
