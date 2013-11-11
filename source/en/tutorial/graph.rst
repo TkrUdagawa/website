@@ -68,5 +68,5 @@ Sample Program
    :maxdepth: 2
 
    graph_python
-   graph_ruby
-   graph_java
+
+Currently, we have no sample programs except Python. (We welcome your contribution!)

@@ -68,4 +68,5 @@ Jubatus Clientを使ったコーディングは、主に以下の流れになり
 
    recommender_python
    recommender_ruby
-   recommender_java
+
+現在、Python と Ruby 以外の言語のサンプルプログラムはありません。(みなさまのコントリビューションをお待ちしています!)

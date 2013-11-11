@@ -55,5 +55,5 @@ Sample Program
    :maxdepth: 2
 
    regression_python
-   regression_ruby
-   regression_java
+
+Currently, we have no sample programs except Python. (We welcome your contribution!)

@@ -48,5 +48,5 @@ Jubatus Clientを使ったコーディングは、主に以下の流れになり
    :maxdepth: 2
 
    stat_python
-   stat_ruby
-   stat_java
+
+現在、Python 以外の言語のサンプルプログラムはありません。(みなさまのコントリビューションをお待ちしています!)

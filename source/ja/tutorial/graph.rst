@@ -67,5 +67,5 @@ Jubatus Client の使ったコーディングは、主に以下の流れにな�
    :maxdepth: 2
 
    graph_python
-   graph_ruby
-   graph_java
+
+現在、Python 以外の言語のサンプルプログラムはありません。(みなさまのコントリビューションをお待ちしています!)

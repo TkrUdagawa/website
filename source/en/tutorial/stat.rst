@@ -47,5 +47,5 @@ Sample Program
    :maxdepth: 2
 
    stat_python
-   stat_ruby
-   stat_java
+
+Currently, we have no sample programs except Python. (We welcome your contribution!)

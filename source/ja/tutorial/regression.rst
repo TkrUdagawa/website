@@ -58,5 +58,5 @@ Jubatus Clientを使ったコーディングは、主に以下の流れになり
    :maxdepth: 2
 
    regression_python
-   regression_ruby
-   regression_java
+
+現在、Python 以外の言語のサンプルプログラムはありません。(みなさまのコントリビューションをお待ちしています!)
