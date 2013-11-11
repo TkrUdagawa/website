@@ -11,13 +11,7 @@ In this sample program, we will explain 1) how to configure the learning-algorit
 
 **stat.json**
 
-.. code-block:: python
-
- 1 : {
- 2 :   "window_size": 500
- 3 : }
- 
-.. code-block:: python
+.. code-block:: js
  :linenos:
 
  {
@@ -78,7 +72,7 @@ The configuration information is given by the JSON unit. Here is the meaning of 
 
 **stat.py**
 
-  Stat.py reads the 'price', 'weight', 'diameter' of fruits from the .csv file, and send the info. to Jubatus server. The methods used are listed below.
+Stat.py reads the 'price', 'weight', 'diameter' of fruits from the .csv file, and send the info. to Jubatus server. The methods used are listed below.
  
  * bool push(0: string key, 1: double val)
 
@@ -109,12 +103,10 @@ The configuration information is given by the JSON unit. Here is the meaning of 
   Return the degree-th moment about 'center' of values in the attribute "key".
 
 
- For all methods, the first parameter of each method (name) is a string value to uniquely identify a task in the ZooKeeper cluster. When using standalone mode, this must be left blank ("").
-
  1. Connect to Jubatus Server.
 
   Connect to Jubatus Server (Row 12).
-  Setting the IP addr., RPC port of Jubatus Server.
+  Setting the IP addr, RPC port of Jubatus Server and the unique name for task identification in Zookeeper.
 
  2. Prepare the learning data
 
